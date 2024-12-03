@@ -1,3 +1,7 @@
+py -3.9 -m venv myenv
+pip install -r requirements.txt
+pip install numpy<2
+
 #change featurable file in packages
 
  with open(weights_fn)
