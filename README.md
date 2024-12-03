@@ -1,5 +1,9 @@
 py -3.9 -m venv myenv
+
 pip install -r requirements.txt
+
+pip install --upgrade pip
+
 pip install numpy<2
 
 #change featurable file in packages
