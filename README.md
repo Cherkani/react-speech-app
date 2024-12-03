@@ -4,7 +4,7 @@ pip install --upgrade pip
 
 pip install -r requirements.txt
 
-
+pip install flask
 
 pip install numpy<2
 
