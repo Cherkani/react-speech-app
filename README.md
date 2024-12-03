@@ -8,7 +8,7 @@ pip install flask
 
 pip install numpy<2
 
-#change featurable file in packages
+#change featuretable.py file in packages
 
  with open(weights_fn)
 to 
