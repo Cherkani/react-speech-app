@@ -41,7 +41,12 @@ def lambda_handler(event, context):
         }
 
     start = time.time()
-    random_file_name = './'+utilsFileIO.generateRandomString()+'.ogg'
+
+
+    if not os.path.exists('./oggFiles'):
+        os.makedirs('./oggFiles')
+    random_file_name = './oggFiles/' + utilsFileIO.generateRandomString() + '.ogg'
+    # random_file_name = './'+utilsFileIO.generateRandomString()+'.ogg'
     f = open(random_file_name, 'wb')
     f.write(file_bytes)
     f.close()
