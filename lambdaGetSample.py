@@ -19,6 +19,10 @@ class TextDataset():
             line = [self.table_dataframe['de_sentence'].iloc[idx]]
         elif self.language == 'en':
             line = [self.table_dataframe['en_sentence'].iloc[idx]]
+        #start: aymen add this
+        elif self.language == 'fr':
+            line = [self.table_dataframe['fr_sentence'].iloc[idx]] 
+        #end: aymen add this
         else:
             line = [self.table_dataframe['sentence'].iloc[idx]]
         return line
@@ -31,15 +35,22 @@ sample_folder = "./"
 lambda_database = {}
 lambda_ipa_converter = {}
 
-with open(sample_folder+'data_de_en_2.pickle', 'rb') as handle:
+with open(sample_folder+'updated_data_de_en_fr.pickle', 'rb') as handle:
     df = pickle.load(handle)
 
 lambda_database['de'] = TextDataset(df, 'de')
 lambda_database['en'] = TextDataset(df, 'en')
+#start: aymen add this
+lambda_database['fr'] = TextDataset(df, 'fr') 
+#end: aymen add this
 lambda_translate_new_sample = False
 lambda_ipa_converter['de'] = RuleBasedModels.EpitranPhonemConverter(
     epitran.Epitran('deu-Latn'))
 lambda_ipa_converter['en'] = RuleBasedModels.EngPhonemConverter()
+#start: aymen add this
+lambda_ipa_converter['fr'] = RuleBasedModels.EpitranPhonemConverter(
+    epitran.Epitran('fra-Latn'))
+#end: aymen add this
 
 
 def lambda_handler(event, context):

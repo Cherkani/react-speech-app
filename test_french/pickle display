@@ -1,0 +1,38 @@
+import pickle
+
+def display_first_and_last_lines(pickle_file_path, num_lines=10):
+    """
+    Display the first and last `num_lines` lines of a pickle file.
+
+    Parameters:
+    - pickle_file_path (str): Path to the pickle file.
+    - num_lines (int): Number of lines to display from the beginning and end of the file.
+    """
+    try:
+        # Load the pickle file
+        with open(pickle_file_path, 'rb') as file:
+            data = pickle.load(file)
+
+        # Ensure the data is a list or can be indexed
+        if not isinstance(data, list):
+            print("The data in the pickle file is not a list or cannot be indexed.")
+            return
+
+        # Display the first `num_lines` lines
+        print(f"First {num_lines} lines:")
+        for line in data[:num_lines]:
+            print(line)
+
+        print("\n" + "="*50 + "\n")
+
+        # Display the last `num_lines` lines
+        print(f"Last {num_lines} lines:")
+        for line in data[-num_lines:]:
+            print(line)
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+# Example usage
+pickle_file_path = 'path/to/your/pickle_file.pkl'  # Replace with the path to your pickle file
+display_first_and_last_lines(pickle_file_path)
