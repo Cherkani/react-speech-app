@@ -29,6 +29,40 @@ def getASRModel(language: str) -> nn.Module:
 
     return (model, decoder)
 
+# import torch
+# from torch import nn
+# from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
+
+# def getASRModel(language: str) -> nn.Module:
+#     if language == 'de':
+#         # Load the Silero model for German
+#         model, decoder, utils = torch.hub.load(
+#             repo_or_dir='snakers4/silero-models',
+#             model='silero_stt',
+#             language='de',
+#             device=torch.device('cpu')
+#         )
+
+#     elif language == 'en':
+#         # Load the Silero model for English
+#         model, decoder, utils = torch.hub.load(
+#             repo_or_dir='snakers4/silero-models',
+#             model='silero_stt',
+#             language='en',
+#             device=torch.device('cpu')
+#         )
+        
+#     elif language == 'fr':
+#         # Load Wav2Vec 2.0 model for French from Hugging Face
+#         model = Wav2Vec2ForCTC.from_pretrained('facebook/wav2vec2-large-xlsr-53-french')
+#         processor = Wav2Vec2Processor.from_pretrained('facebook/wav2vec2-large-xlsr-53-french')
+        
+#         # The processor can serve as the decoder to convert model output to text
+#         decoder = processor
+
+#     return model, decoder
+
+
 
 def getTTSModel(language: str) -> nn.Module:
 

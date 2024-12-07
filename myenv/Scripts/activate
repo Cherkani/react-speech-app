@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\cherk\Desktop\ai1\ai-pronunciation-trainer\myenv"
+VIRTUAL_ENV="D:\Tempoary\github_version\react-speech-app\myenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

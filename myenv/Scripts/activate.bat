@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\cherk\Desktop\ai1\ai-pronunciation-trainer\myenv
+set VIRTUAL_ENV=D:\Tempoary\github_version\react-speech-app\myenv
 
 if not defined PROMPT set PROMPT=$P$G
 

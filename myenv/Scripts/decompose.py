@@ -1,4 +1,4 @@
-#!C:\Users\cherk\Desktop\ai1\ai-pronunciation-trainer\myenv\Scripts\python.exe
+#!D:\Tempoary\github_version\react-speech-app\myenv\Scripts\python.exe
 
 import unicodedata
 import sys

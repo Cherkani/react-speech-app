@@ -1,4 +1,4 @@
-#!C:\Users\cherk\Desktop\ai1\ai-pronunciation-trainer\myenv\Scripts\python.exe
+#!D:\Tempoary\github_version\react-speech-app\myenv\Scripts\python.exe
 
 import argparse
 import codecs
@@ -11,7 +11,7 @@ import epitran
 import epitran.flite
 import panphon
 
-logger = logging.getLogger('epitran')
+logging.basicConfig(level=logging.DEBUG)
 
 
 def normpunc(flite, s):
@@ -49,7 +49,7 @@ def add_file(flite, ft, fn):
             if len(fields) > 0:
                 orth = fields[0]
                 space.update(add_record(flite, ft, orth))
-    logger.debug(u'Length of counter:\t{}'.format(len(space)))
+    logging.debug(u'Length of counter:\t{}'.format(len(space)))
     return space
 
 
@@ -66,7 +66,7 @@ def main(infiles, output):
     ft = panphon.FeatureTable()
     space = Counter()
     for fn in infiles:
-        logger.debug(u'Scanning:\t{}'.format(fn).encode('utf-8'))
+        logging.debug(u'Scanning:\t{}'.format(fn).encode('utf-8'))
         space.update(add_file(flite, ft, fn))
     print_space(output, space)
 

@@ -1,4 +1,4 @@
-#!C:\Users\cherk\Desktop\ai1\ai-pronunciation-trainer\myenv\Scripts\python.exe
+#!D:\Tempoary\github_version\react-speech-app\myenv\Scripts\python.exe
 
 import argparse
 import codecs
@@ -9,7 +9,7 @@ import epitran
 import panphon
 import unicodecsv as csv
 
-logger = logging.getLogger('epitran')
+logging.basicConfig(level=logging.DEBUG)
 
 
 def normpunc(epi, s):
@@ -44,7 +44,7 @@ def add_file_gen(epi, ft, fn):
             if len(fields) > 0:
                 orth = fields[0]
                 space.update(add_record_gen(epi, ft, orth))
-    logger.debug(u'Length of counter:\t{}'.format(len(space)))
+    logging.debug(u'Length of counter:\t{}'.format(len(space)))
     return space
 
 
@@ -67,14 +67,14 @@ def add_file_op(epi, ft, fn):
                         else:
                             space[trans[0]] += 1
                         trans = trans[1:]
-    logger.debug(u'Length of counter:\t{}'.format(len(space)))
+    logging.debug(u'Length of counter:\t{}'.format(len(space)))
     return space
 
 
 def print_space(output, space):
     pairs = enumerate(sorted(filter(lambda x: x, space.keys())))
     with open(output, 'wb') as f:
-        writer = csv.writer(f, encoding='utf-8', encoding='utf-8')
+        writer = csv.writer(f, encoding='utf-8')
         for i, char in pairs:
             writer.writerow((i, char))
 
@@ -84,7 +84,7 @@ def main(code, op, infiles, output):
     ft = panphon.FeatureTable()
     space = Counter()
     for fn in infiles:
-        logger.debug(u'Scanning:\t{}'.format(fn).encode('utf-8'))
+        logging.debug(u'Scanning:\t{}'.format(fn).encode('utf-8'))
         add_file = add_file_op if op else add_file_gen
         space.update(add_file(epi, ft, fn))
     print_space(output, space)
