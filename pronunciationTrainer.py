@@ -26,6 +26,11 @@ def getTrainer(language: str):
             epitran.Epitran('deu-Latn'))
     elif language == 'en':
         phonem_converter = RuleBasedModels.EngPhonemConverter()
+#start: aymen add this  
+    elif language == 'fr':  # Ajout du support pour le français
+        phonem_converter = RuleBasedModels.EpitranPhonemConverter(
+            epitran.Epitran('fra-Latn'))
+    #end: aymen add this  
     else:
         raise ValueError('Language not implemented')
 
